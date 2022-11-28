@@ -1,15 +1,21 @@
 import sys
 import smartphone_rekomender as cbr
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox,
-                            QPushButton, QVBoxLayout, QWidget,QMainWindow, 
-                            QWidget, QLabel, QLineEdit, QDoubleSpinBox, QSpinBox,
+                            QPushButton, QWidget,QMainWindow, QLabel, 
+                            QLineEdit, QDoubleSpinBox, QSpinBox,
                             QHBoxLayout, QComboBox)
 
 class Window(QWidget):
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
+
+        custom_font = QFont()
+        custom_font.setPointSize(12)
+        QApplication.setFont(custom_font, "QLabel")
+        QApplication.setFont(custom_font, "QGroupBox")
+        QApplication.setFont(custom_font, "QPushButton")
 
         self.hlayout = QHBoxLayout()
         gridInput = QGridLayout()
@@ -239,10 +245,11 @@ class Window(QWidget):
                         display_res, refesh_rate, display_hdr)
 
         gridResult = QGridLayout()
+        gridResult.setSpacing(20)
 
         gridResult.addWidget(self.labelResult, 0, 0, 1, 4, Qt.AlignCenter)
         gridResult.addWidget(self.pic1, 1, 0, 1, 2, Qt.AlignCenter)
-        gridResult.addWidget(self.label1, 1, 2, 1, 4, Qt.AlignCenter)
+        gridResult.addWidget(self.label1, 1, 1, 1, 4, Qt.AlignCenter)
         gridResult.addWidget(self.pic2, 3, 0, Qt.AlignCenter)
         gridResult.addWidget(self.label2, 4, 0, Qt.AlignCenter)
         gridResult.addWidget(self.pic3, 3, 1, Qt.AlignCenter)
