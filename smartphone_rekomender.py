@@ -41,7 +41,7 @@ def total_sim(memory, internal_storage, os_price, dual_sim, esim,
     total_weight += weight_internal_storage
     sim.append(sim_fuzzy(internal_storage, df_phone['internal_storage'], df_phone['internal_storage'].max(), df_phone['internal_storage'].min()).apply(lambda x: x*weight_internal_storage))
   if os_price != 0:
-    weight_os_price = 4
+    weight_os_price = 6
     total_weight += weight_os_price
     sim.append(sim_fuzzy(os_price, df_phone['os_price'], df_phone['os_price'].max(), df_phone['os_price'].min()).apply(lambda x: x*weight_os_price))
   if dual_sim != 0:
